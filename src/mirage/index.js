@@ -8,16 +8,16 @@ export function startMirage() {
             operator: Factory.extend({
                 name(i){
                     const operatorsList = ['mts', 'beeline', 'megafon'];
-                    return operatorsList[i]
+                    return operatorsList[i % operatorsList.length]
                 },
                 logo(i){
                     const operatorsList = ['mts', 'beeline', 'megafon'];
-                    return `img/${operatorsList[i]}.svg`
+                    return `img/${operatorsList[i % operatorsList.length]}.svg`
                 }
             }),
         },
         seeds(server) {
-            server.createList('operator', 3);
+            server.createList('operator', 6);
         },
         routes() {
             this.namespace = 'api';
