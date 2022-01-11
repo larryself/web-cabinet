@@ -1,12 +1,12 @@
 import React from 'react';
-import {Link} from "./operatorStyled";
+import {A} from "./operatorStyled";
 
 const Operator = (props) => {
-    const {name, logo} = props
+    const {name, logo, onClick} = props
     return (
-        <Link href={`/pay`}>
+        <A to={`/pay`} onClick={onClick}>
             <img src={logo} width={'235px'} height={'50px'} alt={name}/>
-        </Link>
+        </A>
     );
 };
 
