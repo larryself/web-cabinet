@@ -1,22 +1,22 @@
 import React from 'react';
-import {Header} from "./indexStyle";
+import {Header, List, ListItem, Title} from "./indexStyle";
 import Wrapper from "../../components/wrapper/wrapper";
 import Operator from "../../components/operator/operator";
-const operators = [{id: 1, name: 'mts', logo: 'assets/img/mts.svg'},{id: 2, name: 'megafon', logo: 'assets/img/megafon.svg'},{id: 3, name: 'beeline', logo: 'assets/img/beeline.svg'}]
+const operators = [{id: 1, name: 'mts', logo: 'img/mts.svg'},{id: 2, name: 'megafon', logo: 'img/megafon.svg'},{id: 3, name: 'beeline', logo: 'img/beeline.svg'}]
 const Index = () => {
     return (
         <Wrapper>
             <Header>
-                <h1>Выберете оператора:</h1>
+                <Title>Выберете оператора:</Title>
             </Header>
             <main>
-                <ul>
+                <List>
                     {operators.map((operator)=> (
-                        <li key={operator.id}>
+                        <ListItem key={operator.id}>
                            <Operator name={operator.name} logo={operator.logo}/>
-                        </li>
+                        </ListItem>
                     ))}
-                </ul>
+                </List>
             </main>
         </Wrapper>
     );
