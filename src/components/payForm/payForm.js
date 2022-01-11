@@ -8,6 +8,7 @@ import {toPay} from "../../api/toPay";
 import {changeOperator} from "../../action/action";
 import {ReactComponent as ApprovedIcon} from "../../assets/img/approved.svg"
 import {ReactComponent as ErrorIcon} from "../../assets/img/error.svg"
+import maskValidate from "../../utils/maskValidate";
 
 const PayForm = () => {
     const {register, handleSubmit, formState} = useForm({mode: "onChange"});
@@ -28,6 +29,10 @@ const PayForm = () => {
             setErrorPay(true)
         }
     }
+    const handleInput = (event) =>{
+        const {name} = event.target;
+        maskValidate(event, name);
+    }
     const redirectToIndexPage = () => setTimeout(() => {
         GlobalDispatch(changeOperator(''))
     }, 3000);
@@ -45,12 +50,28 @@ const PayForm = () => {
         <Form onSubmit={handleSubmit(onSubmit)}>
             <Container>
                 <img src={operator.logo} alt={operator.name} width={235} height={50}/>
-                <InputBox type={'tel'} name={'phoneNumber'} placeHolder={'Номер телефона'}
-                          label={'Номер'} {...register('phoneNumber', {required: true, minLength: 17})}/>
-                <InputBox type={'tel'} name={'amountPay'} placeHolder={'Сумма оплаты'}
-                          label={'Сумма'} {...register('amountPay', {required: true})}/>
+                <InputBox
+                    type={'tel'}
+                    name={'phoneNumber'}
+                    placeHolder={'Номер телефона'}
+                    label={'Номер'}
+                    {...register('phoneNumber', {required: true, minLength: 17,onChange: handleInput})}/>
+                <InputBox
+                    type={'tel'}
+                    name={'amountPay'}
+                    placeHolder={'Сумма оплаты'}
+                    label={'Сумма'}
+                    {...register('amountPay', {
+                        required: true, validate: {
+                            amount: value => {
+                                const formattedValue = value.replace(/\D/g, '');
+                                return +formattedValue <= 1000 && +formattedValue >= 1
+                            }
+                        },
+                        onChange: handleInput
+                    })}/>
                 <Button type={'submit'} disabled={!isValid || !isDirty}>Оплатить</Button>
-                {errors.amountPay && <span>Сумма платежа от 1 до 1000</span>}
+                {errors.amountPay && <MessageBlock><ErrorIcon/><RedText>Сумма платежа от 1 до 1000</RedText></MessageBlock>}
                 {approvedPay &&
                 <MessageBlock><ApprovedIcon/><GreenText>Платеж выполнен, вы будете перенаправлены на начальную
                     страницу</GreenText></MessageBlock>}
