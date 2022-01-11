@@ -1,9 +1,12 @@
 import React from 'react';
-import Index from "./page/index";
+import {BrowserRouter} from "react-router-dom";
+import AppRouter from "./components/appRouter/appRouter";
 
 const App = () => {
     return (
-        <Index/>
+        <BrowserRouter>
+            <AppRouter/>
+        </BrowserRouter>
     );
 };
 
