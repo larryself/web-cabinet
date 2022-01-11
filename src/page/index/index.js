@@ -1,9 +1,23 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Header, List, ListItem, Title} from "./indexStyle";
 import Wrapper from "../../components/wrapper/wrapper";
 import Operator from "../../components/operator/operator";
-const operators = [{id: 1, name: 'mts', logo: 'img/mts.svg'},{id: 2, name: 'megafon', logo: 'img/megafon.svg'},{id: 3, name: 'beeline', logo: 'img/beeline.svg'}]
+import {getOperators} from "../../api/getOperators";
+
 const Index = () => {
+    const [operators,setOperators] = useState([])
+    const fetchOperators = async () => {
+        try {
+            const data = await getOperators();
+            const {operators} = await data;
+            setOperators(operators)
+        } catch (e){
+            console.error(e)
+        }
+    }
+    useEffect(()=>{
+        fetchOperators()
+    },[])
     return (
         <Wrapper>
             <Header>
