@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {DEKSTOP} from "../../constants/breakpoints";
+import {DESKTOP} from "../../constants/breakpoints";
 
 export const Header = styled.header`
   padding-top: 20px;
@@ -15,7 +15,7 @@ export const List = styled.ul`
   gap: 20px;
   justify-content: center;
   flex-wrap: wrap;
-  @media (min-width: ${DEKSTOP}) {
+  @media (min-width: ${DESKTOP}) {
     max-width: 80%;
     justify-content: center;
   }`
