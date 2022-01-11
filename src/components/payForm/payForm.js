@@ -1,17 +1,16 @@
 import React from 'react';
-import {Form} from "./payFormStyle";
+import {Button, Container, Form} from "./payFormStyle";
+import InputBox from "../inputBox/inputBox";
 
 const PayForm = () => {
     return (
         <Form>
-            <img src="img/mts.svg" alt="mts" width={235} height={50}/>
-            <label>Номер
-                <input type="text" placeholder={'Номер телефона'}/>
-            </label>
-            <label>Сумма
-                <input type="text" placeholder={'Сумма'}/>
-            </label>
-            <input type={'submit'} value={'Отправить'}/>
+            <Container>
+                <img src="img/mts.svg" alt="mts" width={235} height={50}/>
+                <InputBox type={'tel'} name={'phoneNumber'} placeHolder={'Номер телефона'} label={'Номер'}/>
+                <InputBox type={'tel'} name={'amountPay'} placeHolder={'Сумма оплаты'} label={'Сумма'}/>
+                <Button type={'submit'}>Оплатить</Button>
+            </Container>
         </Form>
     );
 };
