@@ -1,13 +1,14 @@
 import React from 'react';
 import {Header} from "./indexStyle";
+import Wrapper from "../../components/wrapper/wrapper";
 
 const Index = () => {
     return (
-        <React.Fragment>
+        <Wrapper>
             <Header>
                 <h1>Выберете оператора:</h1>
             </Header>
-        </React.Fragment>
+        </Wrapper>
     );
 };
 
