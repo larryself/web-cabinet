@@ -12,7 +12,7 @@ const PayForm = () => {
         if (!operator.name) {
             navigator('/')
         }
-    }, [operator])
+    }, [operator,navigator])
     return (
         <Form>
             <Container>

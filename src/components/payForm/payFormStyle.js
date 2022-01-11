@@ -10,6 +10,26 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 15px;`
-export  const Button = styled.button`
+export const Button = styled.button`
   align-self: flex-end;
-  padding: 8px 12px;`
+  padding: 12px 15px;
+  font-weight: 500;
+  background: #107EFF;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: 0.3s;
+
+  &:focus, &:hover {
+    background: #308FFF;
+  }
+
+  &:active {
+    background: #0067DF;
+  }
+
+  &:disabled {
+    background: red;
+    cursor: default;
+    opacity: 0.5;
+  }`
