@@ -1,8 +1,4 @@
-export const getOperators = async () => {
-     const response = await fetch('/api/operators');
-     if (!response.ok) {
-          throw new Error(response.statusText);
-     }
-     const data = await response.json();
-     return data
-}
+import {API_OPERATORS} from "../constants/url";
+import {callApi} from "./utils/callApi";
+
+export const getOperators = () => callApi({url: API_OPERATORS})

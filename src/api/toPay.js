@@ -1,7 +1,4 @@
-export const toPay = async (data) => {
-    const response = await fetch('/api/pay', {method: "POST", body: JSON.stringify(data)});
-    if (!response.ok) {
-        throw new Error(response.statusText);
-    }
-    return response
-}
+import {API_PAY} from "../constants/url";
+import {callApi} from "./utils/callApi";
+
+export const toPay = (data) => callApi({url: API_PAY, method: 'POST', body: data})
