@@ -9,5 +9,4 @@ export const A = styled(Link)`
 
   &:hover, :focus {
     background: #b0cbf8;
-  }
-`
+  }`

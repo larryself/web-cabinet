@@ -29,7 +29,7 @@ const PayForm = () => {
             setErrorPay(true)
         }
     }
-    const handleInput = (event) =>{
+    const handleInput = (event) => {
         const {name} = event.target;
         maskValidate(event, name);
     }
@@ -55,7 +55,7 @@ const PayForm = () => {
                     name={'phoneNumber'}
                     placeHolder={'Номер телефона'}
                     label={'Номер'}
-                    {...register('phoneNumber', {required: true, minLength: 17,onChange: handleInput})}/>
+                    {...register('phoneNumber', {required: true, minLength: 17, onChange: handleInput})}/>
                 <InputBox
                     type={'tel'}
                     name={'amountPay'}
@@ -71,7 +71,8 @@ const PayForm = () => {
                         onChange: handleInput
                     })}/>
                 <Button type={'submit'} disabled={!isValid || !isDirty}>Оплатить</Button>
-                {errors.amountPay && <MessageBlock><ErrorIcon/><RedText>Сумма платежа от 1 до 1000</RedText></MessageBlock>}
+                {errors.amountPay &&
+                <MessageBlock><ErrorIcon/><RedText>Сумма платежа от 1 до 1000</RedText></MessageBlock>}
                 {approvedPay &&
                 <MessageBlock><ApprovedIcon/><GreenText>Платеж выполнен, вы будете перенаправлены на начальную
                     страницу</GreenText></MessageBlock>}

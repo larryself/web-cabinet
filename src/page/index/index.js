@@ -28,7 +28,7 @@ const Index = () => {
     return (
         <Wrapper>
             <Header>
-                <Title>Выберете оператора:</Title>
+                <Title>Выберите оператора:</Title>
             </Header>
             <Main>
                 <List>

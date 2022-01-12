@@ -1,4 +1,5 @@
-import { createServer, Factory, Model , Response} from 'miragejs';
+import {createServer, Factory, Model, Response} from 'miragejs';
+
 export function startMirage() {
     return createServer({
         models: {
@@ -6,11 +7,11 @@ export function startMirage() {
         },
         factories: {
             operator: Factory.extend({
-                name(i){
+                name(i) {
                     const operatorsList = ['mts', 'beeline', 'megafon'];
                     return operatorsList[i % operatorsList.length]
                 },
-                logo(i){
+                logo(i) {
                     const operatorsList = ['mts', 'beeline', 'megafon'];
                     return `img/${operatorsList[i % operatorsList.length]}.svg`
                 }
@@ -22,12 +23,12 @@ export function startMirage() {
         routes() {
             this.namespace = 'api';
             this.get('/operators', (schema) => {
-                const { operators } = schema;
+                const {operators} = schema;
                 return operators.all();
             });
-            this.post('/pay',()=>{
-                const random = Math.floor(Math.random()*10)
-                if(random % 2 === 0){
+            this.post('/pay', () => {
+                const random = Math.floor(Math.random() * 10)
+                if (random % 2 === 0) {
                     return new Response(200)
                 }
                 return new Response(500, {errors: ['The database went on vacation']});

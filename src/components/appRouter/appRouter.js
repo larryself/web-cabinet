@@ -5,8 +5,8 @@ import PayPage from "../../page/payPage/payPage";
 const AppRouter = () => {
     return (
         <Routes>
-            <Route path="/" element={<Index />}/>
-            <Route path="pay" element={<PayPage />} />
+            <Route path="/" element={<Index/>}/>
+            <Route path="pay" element={<PayPage/>}/>
         </Routes>
     );
 };

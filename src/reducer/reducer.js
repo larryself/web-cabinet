@@ -9,7 +9,7 @@ const initialStore = {
     },
 }
 const reducer = (state = initialStore, action) => {
-    console.log('action',action)
+    console.log('action', action)
     switch (action.type) {
         case CHANGE_OPERATOR:
             return {...state, operator: {...action.operator}};
@@ -17,4 +17,4 @@ const reducer = (state = initialStore, action) => {
             return {...state};
     }
 }
-export {reducer,initialStore}
+export {reducer, initialStore}

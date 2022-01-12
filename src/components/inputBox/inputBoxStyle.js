@@ -14,8 +14,7 @@ export const Container = styled.div`
 export const Label = styled.label`
   font-size: 15px;
   font-weight: 500;
-  min-width: 15%;
-`
+  min-width: 15%;`
 export const Input = styled.input`
   background: #fff;
   font-size: 1.4rem;
