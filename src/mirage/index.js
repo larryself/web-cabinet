@@ -17,7 +17,7 @@ export function startMirage() {
             }),
         },
         seeds(server) {
-            server.createList('operator', 6);
+            server.createList('operator', 3);
         },
         routes() {
             this.namespace = 'api';
