@@ -14,7 +14,7 @@ import Loader from '../loader/loader';
 
 const PayForm = ({ operator }: PayPageProps) => {
   const { name, logo } = operator;
-  const { register, handleSubmit, formState } = useForm<FormData>({ mode: 'onBlur',  reValidateMode: 'onChange', });
+  const { register, handleSubmit, formState } = useForm<FormData>({mode: 'onTouched'});
   const { errors, isSubmitting } = formState;
   const onSubmit = async (data: FormData) => {
     try {
@@ -35,7 +35,7 @@ const PayForm = ({ operator }: PayPageProps) => {
   };
 
   const currencyValidate = (value: string): boolean => {
-    const formattedValue = value.replace(/ /gi, '');
+    const formattedValue = value.replace(/[^0-9]/gi, '');
     return +formattedValue <= 1000 && +formattedValue >= 1;
   };
   return (
@@ -49,7 +49,6 @@ const PayForm = ({ operator }: PayPageProps) => {
           placeholder={'8 (999) 999-99-99'}
           label={'Номер'}
           {...register('phoneNumber', {
-            valueAsNumber: false,
             required: true,
             onChange: handleInput,
             validate: phoneValidate,
