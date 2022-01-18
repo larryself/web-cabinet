@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Web cabinet [task](https://web-cabinet.vercel.app/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Tерминал оплаты мобильного телефона.
 
-## Available Scripts
+### Задание:
 
-In the project directory, you can run:
+В приложении должен быть главный экран со списком операторов - МТС, Билайн,
+Мегафон. Список должен быть расширяем. По клику на оператора переходить на
+экран формы оплаты.
+Экран с формой оплаты должен содержать выбранного оператора, поле ввода
+телефона с маской и валидацией, и поле ввода суммы в рублях с маской и
+валидацией (мин 1 и макс 1000 руб). Кнопка подтверждения, которая ожидает ответа
+от сервера. После ответа показывается сообщение об успехе или об ошибке. В случае
+успеха переходим на основной экран.
 
-### `npm start`
+- Стэк: TypeScript, Next.js, React и React Hooks, Styled-Components.
+- Обращение к API должны быть эмулированы. Ответы должны быть успешные
+  или неуспешные в случайном порядке.
+- Дизайн и верстка на ваше усмотрение, но сделайте красиво и добавьте
+  анимации 💅
+- При этом верстка должна быть адаптивной и поддерживать различные размеры
+  экранов, включая мобильные.
+- Исходный код должен быть выложен на Github.com.
+- В репозитории должна быть ссылка на демо приложения.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Выполнено:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Операторы и лого приходят с сервера, что позволяет расширить список операторов, реализовано с помощью mock-сервера - [`mswjs`](https://mswjs.io/)
+- Работа с формами реализованна с помощью - [`react-hook-form`](https://react-hook-form.com/)
+- Toast-уведомления реализованны с помощью - [`react-hot-toast`](https://react-hot-toast.com/)
 
-### `npm test`
+## Развернуть проект локально:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Установка
 
-### `npm run build`
+Для установки клонируйте текущий репозиторий и установите зависимости
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `npm install`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Для запуска проекта в формате разработке
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `npm run dev`
 
-### `npm run eject`
+Открыть [http://localhost:3000](http://localhost:3000) чтобы посмотреть его в браузере
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Развевернуть проект на Vercel
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Разверните проект с помощью [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/larryself/next&project-name=web-cabinet&repository-name=web-cabinet)
