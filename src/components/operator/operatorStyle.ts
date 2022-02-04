@@ -1,23 +1,22 @@
 import styled from 'styled-components';
+import { COLOR } from '../../constants/vars';
 
-const A = styled.a`
+export const A = styled.a`
   padding: 5px;
-  border: 1px solid #d8e3ec;
+  border: 1px solid ${COLOR.BLUE_OUTLINE};
   border-radius: 4px;
-  background: #fff;
+  background: ${COLOR.WHITE};
 
   &:hover {
-    border-color: #96aecd;
+    border-color: ${COLOR.GREY_BLUE};
   }
 
   &:focus {
-    border-color: #107eff;
+    border-color: ${COLOR.BLUE};
   }
 
   &:hover,
   :focus {
-    background: #e8f3ff;
+    background: ${COLOR.PALE_BLUE};
   }
 `;
-
-export default A;

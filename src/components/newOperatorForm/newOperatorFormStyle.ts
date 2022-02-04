@@ -45,14 +45,3 @@ export const Button = styled.button`
     opacity: 0.5;
   }
 `;
-export const MessageBlock = styled.div`
-  display: flex;
-  align-items: center;
-  column-gap: 5px;
-`;
-export const RedText = styled.span`
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 16px;
-  color: ${COLOR.RED};
-`;

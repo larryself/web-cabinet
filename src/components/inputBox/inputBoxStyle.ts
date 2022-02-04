@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { MOBILE } from '../../constants/breakpoints';
+import { COLOR } from '../../constants/vars';
 
 export const Container = styled.div`
   display: flex;
@@ -29,25 +30,25 @@ export const InputWrapper = styled.div`
   }
 `;
 export const Input = styled.input`
-  background: #fff;
+  background: ${COLOR.WHITE};
   font-size: 1.4rem;
   padding: ${(props) => (props.name === 'amountPay' ? '12px 40px 12px 15px' : '12px 15px')};
   border-width: 1px;
   border-style: solid;
-  border-color: #d8e3ec;
+  border-color: ${COLOR.BLUE_OUTLINE};
   border-radius: 4px;
   width: 100%;
 
   &:hover {
-    border-color: #96aecd;
+    border-color: ${COLOR.GREY_BLUE};
   }
 
   &:focus {
-    border-color: #107eff;
+    border-color: ${COLOR.BLUE};
   }
 
   &:invalid {
-    border-color: #ff1018;
+    border-color: ${COLOR.RED};
   }
 `;
 export const EndValue = styled.span`

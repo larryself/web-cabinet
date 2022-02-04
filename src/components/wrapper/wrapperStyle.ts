@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Wrap = styled.div`
+export const Wrap = styled.div`
   max-width: 1180px;
   width: 100%;
   padding-left: 16px;
@@ -9,5 +9,3 @@ const Wrap = styled.div`
   margin-right: auto;
   box-sizing: border-box;
 `;
-
-export default Wrap;
