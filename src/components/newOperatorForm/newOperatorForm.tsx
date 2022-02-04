@@ -26,7 +26,6 @@ const useNewOperator = () => {
 export const NewOperatorForm = () => {
   const { register, handleSubmit, formState } = useForm<FormData>({ mode: 'onTouched' });
   const { errors, isSubmitting } = formState;
-
   const { mutateAsync: createOperator } = useNewOperator();
   const onSubmit = async (data: FormData) => {
     await createOperator(data);
@@ -39,14 +38,14 @@ export const NewOperatorForm = () => {
           type={'text'}
           placeholder={'Вымпелком'}
           label={'Название оператора'}
-          {...register('operatorName', { required: true, validate: (e) => e.length >= 2 })}
+          {...register('operatorName', { required: true, validate: (e) => e.length >= 3 })}
           className={errors.operatorName?.type === 'validate' ? 'invalid' : ''}
         />
         <InputBox
           type={'text'}
           placeholder={'Логотип оператора'}
           label={'Логотип оператора'}
-          {...register('logo', { required: true })}
+          {...register('logo', { required: true, validate: (e) => e.length >= 3 })}
           className={errors.logo?.type === 'validate' ? 'invalid' : ''}
         />
         <ButtonContainer>
@@ -54,7 +53,9 @@ export const NewOperatorForm = () => {
             Вернуться назад
           </Button>
           <ButtonInner>
-            <Button type={'submit'}>Создать оператора</Button>
+            <Button type={'submit'} disabled={isSubmitting}>
+              Создать оператора
+            </Button>
             {isSubmitting && <Loader />}
           </ButtonInner>
         </ButtonContainer>
