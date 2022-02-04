@@ -8,6 +8,8 @@ export type Operator = {
 export type FormData = {
   phoneNumber: string;
   amountPay: string;
+  operatorName: string;
+  logo: string;
 };
 export type OperatorProps = {
   logo: string;
@@ -30,7 +32,7 @@ export type InputProps = {
   name: string;
   label: string;
   placeholder: string;
-  className: string | undefined;
+  className?: string | undefined;
   endValue?: string | null;
 };
 export type IndexProps = {
