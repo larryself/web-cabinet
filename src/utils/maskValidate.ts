@@ -37,7 +37,7 @@ const phoneValidation = (value: string): string => {
   if (value.length > 9) formattedInputValue += '-' + value.slice(9, 11);
   return formattedInputValue;
 };
-const maskValidate = (event: any) => {
+export const maskValidate = (event: any) => {
   const input = event.target;
   const { name } = event.target;
   const selectionStart = input.selectionStart;
@@ -62,4 +62,3 @@ const maskValidate = (event: any) => {
     input.value = formattedValue;
   }
 };
-export default maskValidate;
