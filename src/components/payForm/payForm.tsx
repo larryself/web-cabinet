@@ -2,23 +2,22 @@ import Router from 'next/router';
 import React from 'react';
 import { toast } from 'react-hot-toast';
 import { useForm } from 'react-hook-form';
-import axios from 'axios';
 import { Button, ButtonInner, ButtonContainer, Container, Form, MessageBlock, RedText } from './payFormStyle';
-import InputBox from '../inputBox/inputBox';
+import { InputBox } from '../inputBox/inputBox';
 import ErrorIcon from '../../assets/img/error.svg';
-import maskValidate from '../../utils/maskValidate';
-import Img from '../img/img';
+import { maskValidate } from '../../utils/maskValidate';
+import { Img } from '../img/img';
 import { FormData, PayPageProps } from '../../types';
-import { API_PAY, BASE_URL } from '../../constants/url';
-import Loader from '../loader/loader';
+import { Loader } from '../loader/loader';
+import { pay } from '../../api/pay';
 
-const PayForm = ({ operator }: PayPageProps) => {
+export const PayForm = ({ operator }: PayPageProps) => {
   const { name, logo } = operator;
-  const { register, handleSubmit, formState } = useForm<FormData>({mode: 'onTouched'});
+  const { register, handleSubmit, formState } = useForm<FormData>({ mode: 'onTouched' });
   const { errors, isSubmitting } = formState;
   const onSubmit = async (data: FormData) => {
     try {
-      await axios.post(`${BASE_URL}${API_PAY}`, data);
+      await pay(data);
       await redirectToIndexPage();
       toast.success('Платеж выполнен');
     } catch (e) {
@@ -88,5 +87,3 @@ const PayForm = ({ operator }: PayPageProps) => {
     </Form>
   );
 };
-
-export default PayForm;

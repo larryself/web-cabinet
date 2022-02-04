@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import { Container, InputWrapper, Input, Label, EndValue } from './inputBoxStyle';
 import { InputProps } from '../../types';
 
-const InputBox = forwardRef<HTMLInputElement, InputProps>(
+export const InputBox = forwardRef<HTMLInputElement, InputProps>(
   ({ type, name, label, placeholder, className, endValue, ...props }, ref) => (
     <Container>
       <Label htmlFor={name}>{label}</Label>
@@ -14,4 +14,3 @@ const InputBox = forwardRef<HTMLInputElement, InputProps>(
   ),
 );
 InputBox.displayName = 'InputBox';
-export default InputBox;

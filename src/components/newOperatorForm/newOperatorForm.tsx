@@ -1,18 +1,17 @@
 import { useForm } from 'react-hook-form';
-import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import Router from 'next/router';
 import React from 'react';
 import { useMutation, useQueryClient } from 'react-query';
-import { BASE_URL } from '../../constants/url';
 import { FormData } from '../../types';
 import { InputBox } from '../inputBox/inputBox';
 import { Form, Container, Button, ButtonInner, ButtonContainer } from './newOperatorFormStyle';
 import { Loader } from '../loader/loader';
+import { createOperator as crtOperator } from '../../api/createOperator';
 
 const useNewOperator = () => {
   const queryClient = useQueryClient();
-  return useMutation('createOperator', (data: FormData) => axios.post(`${BASE_URL}/operators`, data), {
+  return useMutation('createOperator', (data: FormData) => crtOperator(data), {
     onSuccess: async () => {
       await queryClient.invalidateQueries('operators');
       toast.success('Оператор добавлен');
